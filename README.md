@@ -19,3 +19,5 @@ Desde MySQL WorkBench importar la base de datos mysqlsampledatabase.sql
 5. Subir todo al repositorio y mostrar la imagen del diagrama en este README.md
 
 ---
+
+![Captura de Pantalla, Diagrama en Workbench](/imagen/diagrama.png)
