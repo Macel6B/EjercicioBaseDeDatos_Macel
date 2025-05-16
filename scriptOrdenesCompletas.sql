@@ -9,20 +9,22 @@ SELECT * FROM productlines;
 SELECT * FROM products;
 
 -- B) Mostrar las órdenes completas por cliente
-SELECT * 
-FROM orders 
-JOIN customers
-ON orders.customerNumber = customers.customerNumber
-WHERE status = "shipped";
+SELECT customers.customerNumber, customers.customerName, orders.orderNumber, orders.status
+FROM customers
+JOIN orders
+ON customers.customerNumber = orders.customerNumber
+WHERE status IN ("shipped", "resolved");
 
 -- C) Crear la vista la consulta del paso previo 
-CREATE VIEW ordenes_completas AS
-SELECT * 
-FROM orders 
-JOIN customers
-ON orders.customerNumber = customers.customerNumber
-WHERE status = "shipped";
+CREATE VIEW ordenesCompletas AS
+SELECT customers.customerNumber, customers.customerName, orders.orderNumber, orders.status
+FROM customers
+JOIN orders
+ON customers.customerNumber = orders.customerNumber
+WHERE status IN ("shipped", "resolved");
 
-SELECT * FROM [ordenes_completas];
+SELECT * FROM ordenesCompletas;
+
+
 
 
